@@ -92,8 +92,8 @@ class AppleAuth {
                         url: 'https://appleid.apple.com/auth/token'
                     }).then((response) => {
                         resolve(response.data);
-                    }).catch((response) => {
-                        reject("AppleAuth Error - An error occurred while getting response from Apple's servers: " + response);
+                    }).catch((err) => {
+                        reject("AppleAuth Error - An error occurred while getting response from Apple's servers: " + JSON.stringify(err.response.data));
                     });
                 }).catch((err) => {
                     reject(err);
